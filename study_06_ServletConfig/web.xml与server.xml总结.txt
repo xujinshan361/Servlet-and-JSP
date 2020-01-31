@@ -1,0 +1,46 @@
+Web.xml 文件使用总结
+	作用：
+		存储项目相关的配置信息，保护Servlet。解耦一些数据对程序的依赖
+	使用位置：
+		每个web项目中
+		Tomcat服务器中(在服务器命令conf目录中)
+	区别：
+		Web项目下的web.xml 文件为全局配置，针对本项目的位置
+		Tomcat下的web.xml 文件为全局配置，配置公共信息
+	内容(核心组件)：
+		全局上下文配置(全局配置参数)
+		Servlet配置
+		过滤器配置
+		监听器配置
+	加载顺序：
+		web容器会按照 ServletContext ==》 context-param ==》 listener ==》 filter ==》 servlet 
+		这个顺序加载组件，这些元素可配置在 web.xml 文件的任意位置
+	加载时机：
+		服务器启动时。
+
+Server.xml 文件使用：
+	问题：
+		浏览器发起请求后，服务器根据请求在webapps目录下调用对应的Servlet进行处理，那么为什么是webapps目录？
+	解决：
+		了解server.xml 文件的配置信息
+		
+	server.xml 文件核心组件：
+	
+		<Server>
+			<Service>
+				<Connector />
+				<Connector />
+				<Engine>
+					<Host>
+						<Context />
+					</Host>
+				</Engine>
+			</Service>
+		</Server>
+	
+	热部署：
+		<Context path="/pet" reloadable="true" docBase="F:/petWeb"/>
+		path:配置项目的别名
+		docBase：配置项目的webRoot路径名
+		
+	
