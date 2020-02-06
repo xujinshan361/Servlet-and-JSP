@@ -1,0 +1,28 @@
+Ajax 学习：
+	1.什么是Ajax
+		异步刷新技术，用来在当前页面响应不同的请求内容
+		
+		AJAX 全称为"Asynchronous JavaScript and XML" (异步JavaScript和XML)，是一种创建交互式网页应用的网页开发技术
+		不是一种新技术，是如下几种技术的组合应用
+			基于web标准(standards-based presentation) XHTML +CSS 的表示
+			使用DOM(Document Object Model)进行动态显示及交互
+			使用XML和XSLT进行数据交换及相关操作
+			使用XMLHTTPRequest进行异步数据查询、检索
+			使用JavaScript将所有的东西绑定在一起
+		本质是一个浏览器端的技术
+		
+	2.为什么需要Ajax
+		有时候需要将本次的响应结果和前面的响应结果在同一个页面中展现给用户
+		解决：
+			1.在后台，服务器将多次响应的内容重新拼接成一个JSP页面，响应
+			但是这样会造成很多响应内容被重复的响应，资源浪费
+			2.使用Ajax技术
+	3.使用Ajax
+		Ajax访问原理
+		Ajax的基本使用流程
+		Ajax的状态码
+		Ajax的异步和同步
+		Ajax的请求
+		Ajax的响应数据类型
+		Ajax的封装
+		Ajax案例
