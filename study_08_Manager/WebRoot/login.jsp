@@ -43,11 +43,49 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="loginbody">
     
     <span class="systemlogo"></span> 
-       
+     <br/>  
+     <%
+     	// 声明java代码块进行错误提示语的逻辑校验
+     	Object obj = request.getAttribute("flag");
+     	if(obj != null){
+      %>
+      <div style="text-align:center;">
+     	<span style="font-size:15px;color:green;fond-weight:bold">用户名或密码错误</span>
+     </div>
+     <%} %>
+     
+     <%
+     	// 声明java代码块进行密码修改提示语
+     	Object pwd = session.getAttribute("pwd");
+     	if(pwd != null){
+      %>
+      <div style="text-align:center;">
+     	<span style="font-size:15px;color:green;fond-weight:bold">密码修改成功，请重新登录！</span>
+     </div>
+     <%} %>
+     <%
+     	// pwd 使用过，需要释放掉， 
+     	session.removeAttribute("pwd");
+      %>
+      
+     <%
+     	// 声明java代码块进行注册成功提示语
+     	Object reg = session.getAttribute("reg");
+     	if(reg != null){
+      %>
+      <div style="text-align:center;">
+     	<span style="font-size:15px;color:green;fond-weight:bold">密码修改成功，请重新登录！</span>
+     </div>
+     <%} %>
+     <%
+     	// pwd 使用过，需要释放掉， 
+     	session.removeAttribute("reg");
+      %>
     <div class="loginbox loginbox1">
     <form action="user" metho="post">
     <input type="hidden" name="operation" value="login"/>
     <ul>
+    	<li></li>
     	<!--  鼠标点击一下就变成空的
 	    <li><input name="uname" type="text" class="loginuser" value="admin" onclick="JavaScript:this.value=''"/></li>
 	    <li><input name="pwd" type="text" class="loginpwd" value="密码" onclick="JavaScript:this.value=''"/></li>
@@ -58,7 +96,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <li class="yzm">
 	    <span><input name="" type="text" value="验证码" onclick="JavaScript:this.value=''"/></span><cite>X3D5S</cite> 
 	    </li>
-	    <li><input name="" type="submit" class="loginbtn" value="登录"  onclick="javascript:window.location='main.html'"  /><label><input name="" type="checkbox" value="" checked="checked" />记住密码</label><label><a href="#">忘记密码？</a></label></li>
+	    <li><input name="" type="submit" class="loginbtn" value="登录"  onclick="javascript:window.location='main.html'"  /><label><a href="user/reg.jsp">注册</a></label><label><a href="#">忘记密码？</a></label></li>
+	    
 	    </ul>
     </form>
     

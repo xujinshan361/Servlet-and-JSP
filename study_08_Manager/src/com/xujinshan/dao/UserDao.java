@@ -1,5 +1,7 @@
 package com.xujinshan.dao;
 
+import java.util.List;
+
 import com.xujinshan.pojo.User;
 
 public interface UserDao {
@@ -11,4 +13,25 @@ public interface UserDao {
 	 * @return 查询到的用户信息
 	 */
 	User checkUserLoginDao(String uname, String pwd);
+
+	/**
+	 * 根据用户ID，修改用户密码
+	 * @param newPwd
+	 * @param uid
+	 * @return
+	 */
+	int userChangePwdDao(String newPwd, int uid);
+
+	/**
+	 * 获取所有的用户信息
+	 * @return
+	 */
+	List<User> userShowDao();
+
+	/**
+	 * 用户注册
+	 * @param u
+	 * @return
+	 */
+	int userRegDao(User u);
 }
