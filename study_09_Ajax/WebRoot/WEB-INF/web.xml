@@ -12,6 +12,37 @@
     <servlet-name>AjaxServlet</servlet-name>
     <url-pattern>/ajax</url-pattern>
   </servlet-mapping>
+  <servlet>
+  <servlet-name>AjaxRequest</servlet-name>
+  <servlet-class>com.xujinshan.servlet.AjaxRequest</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UserServlet</servlet-name>
+    <servlet-class>com.xujinshan.servlet.UserServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>XMLServlet</servlet-name>
+    <servlet-class>com.xujinshan.servlet.XMLServlet</servlet-class>
+  </servlet>
+
+
+
+  <servlet-mapping>
+  	<servlet-name>AjaxRequest</servlet-name>
+  	<url-pattern>/ajaxreq</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserServlet</servlet-name>
+    <url-pattern>/user</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>XMLServlet</servlet-name>
+    <url-pattern>/xml</url-pattern>
+  </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>

@@ -13,6 +13,7 @@ Ajax 学习：
 		
 	2.为什么需要Ajax
 		有时候需要将本次的响应结果和前面的响应结果在同一个页面中展现给用户
+		实现在当前页面中显示其他请求的响应内容
 		解决：
 			1.在后台，服务器将多次响应的内容重新拼接成一个JSP页面，响应
 			但是这样会造成很多响应内容被重复的响应，资源浪费
@@ -20,9 +21,50 @@ Ajax 学习：
 	3.使用Ajax
 		Ajax访问原理
 		Ajax的基本使用流程
+			创建Ajax引擎对象
+			复写onreadystatechange函数
+			发送请求
 		Ajax的状态码
+			readyState值表示的含义：
+				0：表示XMLHTTPRequest已经建立，但是还未初始化，这时尚未调用open方法
+				1：表示open方法已经被调用，但是未调用send方法(已创建，未发送)
+				2：表示send方法已经调用，其他数据未知
+				3：表示亲戚已经发成功，正在接收数据
+				4：表示数据已经成功接收
+			HTTP状态码：
+				200：请求成功
+				404：请求资源未找到
+				500：内部服务器错误
 		Ajax的异步和同步
+			ajax.open(method, url, async, user, password)
+				async:设置同步代码执行还是异步代码执行
+					true:代表异步，默认异步
+					false：代表同步
 		Ajax的请求
+			发送请求
+			// get请求：
+				get的请求实体拼接在URL后面，？号隔开就好
+				ajax.open("get","url");
+				ajax.send(null);
+			// post请求
+				post请求有单独的实体
+				ajax.open("post", "url");
+				ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				ajax.send(请求实体)
 		Ajax的响应数据类型
+			// 普通字符串 ：获取方式responseText
+			// JSON(重点)	:获取方式responseText
+				其实就是讲述数据按照JSON的格式拼接好的字符串，方便使用eval方法，
+				将接收的字符串数据直接转换为JS的对象
+				
+				JSON格式：
+					var 对象名={
+						属性名：属性值 ,
+						属性名：属性值 ,
+						......
+					}
+					
+			// XML数据：获取方式：responseXML ，返回document对象
+				通过document对象将数据从XML中获取出来
 		Ajax的封装
 		Ajax案例
